@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 from flask import Flask, request, render_template, send_from_directory, Markup, flash, redirect
 from flask.ext.login import LoginManager, login_required, login_user, logout_user
+from flask.ext import login
 
 from flask.ext import admin
 from flask.ext.admin.contrib import sqla
@@ -11,7 +12,7 @@ from flask.ext.admin.contrib import sqla
 import wtforms
 
 from trombone.user import load_user
-from trombone.models import db, User
+from trombone.models import *
 
 class DefaultConfig(object):
     SECRET_KEY = 'Isthisthereallife?Isthisjustfantasy?Caughtinalandslide'
@@ -39,10 +40,19 @@ if not admin_user:
     db.session.commit()
 
 class UserAdmin(sqla.ModelView):
+#    def is_accessible(self):
+#        return login.current_user.is_authenticated()
     pass
+
+class ThemeQuestionAdmin(sqla.ModelView):
+    inline_models = (DissertativeQuestion, AlternativeQuestion)
+
+#    def is_accessible(self):
+#        return login.current_user.is_authenticated()
 
 admin = admin.Admin(app, 'Trombone')
 admin.add_view(UserAdmin(User, db.session))
+admin.add_view(ThemeQuestionAdmin(ThemeQuestions, db.session))
 
 # Start the application
 app.run(port=8000)
