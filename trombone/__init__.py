@@ -4,6 +4,10 @@ from __future__ import unicode_literals
 
 from flask import Flask, request, render_template, send_from_directory, Markup, flash, redirect
 from flask.ext.login import LoginManager, login_required, login_user, logout_user
+
+from flask.ext import admin
+from flask.ext.admin.contrib import sqla
+
 import wtforms
 
 from trombone.user import load_user
@@ -34,6 +38,12 @@ if not admin_user:
     db.session.add(admin_user)
     db.session.commit()
 
+class UserAdmin(sqla.ModelView):
+    pass
+
+admin = admin.Admin(app, 'Trombone')
+admin.add_view(UserAdmin(User, db.session))
+
 # Start the application
-app.run()
+app.run(port=8000)
 
