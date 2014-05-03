@@ -30,3 +30,25 @@ class User(db.Model):
 
     def get_id(self):
         return self.id
+
+class ThemeQuestions(db.Model):
+    __tablename__ = 'theme_questions'
+    id = db.Column(db.Integer, primary_key=True)
+    description = db.Column(db.Text)
+    dissertative = db.relationship('DissertativeQuestion', backref='theme')
+    alternative  = db.relationship('AlternativeQuestion', backref='theme')
+
+class DissertativeQuestion(db.Model):
+    __tablename__ = 'dissertative_questions'
+    id = db.Column(db.Integer, primary_key=True)
+    theme_id = db.Column(db.Integer, db.ForeignKey('theme_questions.id'))
+    question = db.Column(db.Text)
+    position = db.Column(db.Integer)
+
+class AlternativeQuestion(db.Model):
+    __tablename__ = 'alternative_questions'
+    id = db.Column(db.Integer, primary_key=True)
+    theme_id = db.Column(db.Integer, db.ForeignKey('theme_questions.id'))
+    question = db.Column(db.Text)
+    position = db.Column(db.Integer)
+
