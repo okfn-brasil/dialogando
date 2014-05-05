@@ -4,15 +4,13 @@ from __future__ import unicode_literals
 
 from flask import Flask, request, render_template, send_from_directory, Markup, flash, redirect
 from flask.ext.login import LoginManager, login_required, login_user, logout_user
-from flask.ext import login
-
-from flask.ext import admin
-from flask.ext.admin.contrib import sqla
+#from flask.ext import login
 
 import wtforms
 
-from trombone.user import load_user
+import trombone.user as user
 from trombone.models import *
+from trombone.admin import admin
 
 class DefaultConfig(object):
     SECRET_KEY = 'Isthisthereallife?Isthisjustfantasy?Caughtinalandslide'
@@ -26,7 +24,7 @@ app.config.from_object('trombone.DefaultConfig')
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = ".user.login"
-login_manager.user_loader(load_user)
+login_manager.user_loader(user.load_user)
 
 app.test_request_context().push()
 db.init_app(app)
@@ -39,21 +37,12 @@ if not admin_user:
     db.session.add(admin_user)
     db.session.commit()
 
-class UserAdmin(sqla.ModelView):
-#    def is_accessible(self):
-#        return login.current_user.is_authenticated()
-    pass
+# Create admin interface
+admin.init_app(app)
 
-class ThemeQuestionAdmin(sqla.ModelView):
-    inline_models = (DissertativeQuestion, AlternativeQuestion)
-
-#    def is_accessible(self):
-#        return login.current_user.is_authenticated()
-
-admin = admin.Admin(app, 'Trombone')
-admin.add_view(UserAdmin(User, db.session))
-admin.add_view(ThemeQuestionAdmin(ThemeQuestions, db.session))
+# Add routes
+app.add_url_rule("/login", "login", user.login, methods=['POST', 'GET'])
+app.add_url_rule("/logout", "logout", user.logout, methods=['POST', 'GET'])
 
 # Start the application
-app.run(port=8000)
-
+app.run(port=5001)
