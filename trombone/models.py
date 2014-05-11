@@ -51,4 +51,12 @@ class AlternativeQuestion(db.Model):
     theme_id = db.Column(db.Integer, db.ForeignKey('theme_questions.id'))
     question = db.Column(db.Text)
     position = db.Column(db.Integer)
+    answers = db.relationship('AlternativeAnswer', backref='question')
+
+class AlternativeAnswer(db.Model):
+    __tablename__ = 'alternative_answers'
+    id = db.Column(db.Integer, primary_key=True)
+    alt_question_id = db.Column(db.Integer, db.ForeignKey('alternative_questions.id'))
+    answer = db.Column(db.Text)
+    position = db.Column(db.Integer)
 
