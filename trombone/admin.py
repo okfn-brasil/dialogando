@@ -20,7 +20,7 @@ class UserAdmin(sqla.ModelView):
         return login.current_user.is_authenticated()
 
 class AlternativeQuestionAdmin(sqla.ModelView):
-    inline_models = (AlternativeAnswer,)
+    inline_models = (AlternativeOption,)
 
     def is_accessible(self):
         return login.current_user.is_authenticated()
@@ -35,10 +35,5 @@ admin = admin.Admin(name='Trombone', index_view=MyAdminIndexView(), base_templat
 admin.add_view(UserAdmin(User, db.session))
 admin.add_view(ThemeQuestionAdmin(ThemeQuestions, db.session))
 admin.add_view(AlternativeQuestionAdmin(AlternativeQuestion, db.session))
-
-
-
-
-
 
 

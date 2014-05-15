@@ -51,12 +51,34 @@ class AlternativeQuestion(db.Model):
     theme_id = db.Column(db.Integer, db.ForeignKey('theme_questions.id'))
     question = db.Column(db.Text)
     position = db.Column(db.Integer)
-    answers = db.relationship('AlternativeAnswer', backref='question')
+    answers = db.relationship('AlternativeOption', backref='question')
 
-class AlternativeAnswer(db.Model):
-    __tablename__ = 'alternative_answers'
+class AlternativeOption(db.Model):
+    __tablename__ = 'alternative_options'
     id = db.Column(db.Integer, primary_key=True)
     alt_question_id = db.Column(db.Integer, db.ForeignKey('alternative_questions.id'))
-    answer = db.Column(db.Text)
+    option = db.Column(db.Text)
     position = db.Column(db.Integer)
+
+class Person(db.Model):
+    __tablename__ = 'person'
+    id = db.Column(db.Integer, primary_key=True)
+    slug = db.Column(db.Text)
+    name = db.Column(db.Text)
+    email = db.Column(db.Text)
+    website = db.Column(db.Text)
+    info = db.Column(db.Text)
+    party = db.Column(db.Text)
+
+class PersonDissertativeAnswer(db.Model):
+    __tablename__ = 'person_dissertative_answer'
+    id = db.Column(db.Integer, primary_key=True)
+    dissertative_question_id = db.Column(db.Integer, db.ForeignKey('dissertative_questions.id'))
+    answer = db.Column(db.Text)
+
+class PersonAlternativeAnswer(db.Model):
+    __tablename__ = 'person_alternative_answer'
+    id = db.Column(db.Integer, primary_key=True)
+    alternative_option_id = db.Column(db.Integer, db.ForeignKey('alternative_options.id'))
+    answer = db.Column(db.Integer, db.ForeignKey('alternative_options.id'))
 
