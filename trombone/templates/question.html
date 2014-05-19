@@ -4,8 +4,8 @@
 
 {% block main %}
 <div class="row-fluid">
-    <div class=""
-        <form action="/responder/{{ question.id }}/?u={{ person_slug }}" method="post">
+    <div class="">
+        <form action="/responder/{{ question.id }}?u={{ person_slug }}" method="post">
 {% for field in form %}
         {{ field.label }}
         {{ field }}
