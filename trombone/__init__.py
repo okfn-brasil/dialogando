@@ -9,12 +9,14 @@ from flask.ext.login import LoginManager, login_required, login_user, logout_use
 import wtforms
 
 import trombone.user as user
+import trombone.person as person
 from trombone.models import *
 from trombone.admin import admin
 
 class DefaultConfig(object):
     SECRET_KEY = 'Isthisthereallife?Isthisjustfantasy?Caughtinalandslide'
     SQLALCHEMY_DATABASE_URI = 'sqlite:///./trombone.db'
+    PROPAGATE_EXCEPTIONS = True
 
 app = Flask(__name__)
 app.config.from_object('trombone.DefaultConfig')
@@ -41,8 +43,13 @@ if not admin_user:
 admin.init_app(app)
 
 # Add routes
+
+# Admin interface
 app.add_url_rule("/login", "login", user.login, methods=['POST', 'GET'])
 app.add_url_rule("/logout", "logout", user.logout, methods=['POST', 'GET'])
+
+# Questions list
+app.add_url_rule("/responder/<int:question_id>", "responder", person.questions_page, methods=['GET'])
 
 # Start the application
 app.run(port=5001)

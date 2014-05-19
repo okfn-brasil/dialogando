@@ -1,4 +1,7 @@
+# -*- coding: utf-8 -*-
+
 import sha
+import wtforms
 from flask.ext.sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -30,6 +33,44 @@ class User(db.Model):
 
     def get_id(self):
         return self.id
+
+class SimpleQuestion(db.Model):
+    __tablename__ = 'simple_questions'
+    id = db.Column(db.Integer, primary_key=True)
+    topic = db.Column(db.Integer, db.ForeignKey('questions_topics.id'))
+    title =  db.Column(db.Text)
+    description = db.Column(db.Text)
+    dissertative_1 =  db.Column(db.Text)
+    dissertative_2 = db.Column(db.Text)
+    alternative_a = db.Column(db.Text)
+    alternative_b = db.Column(db.Text)
+
+    def create_form(self, request):
+        class QuestionForm(wtforms.Form):
+            dissertative_1 = wtforms.TextField(self.dissertative_1)
+            dissertative_2 = wtforms.TextField(self.dissertative_2)
+            multiple = wtforms.RadioField("Escolha uma opcao", choices=[('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5')])
+
+        form = QuestionForm(request.form)
+
+        return form
+
+class Topic(db.Model):
+    __tablename__ = 'questions_topics'
+    id = db.Column(db.Integer, primary_key=True)
+    title =  db.Column(db.Text)
+    description = db.Column(db.Text)
+    simple_question = db.relationship(SimpleQuestion)
+
+class SimpleAnswers(db.Model):
+    __tablename__ = 'simple_answers'
+    id = db.Column(db.Integer, primary_key=True)
+    dissertative_1 =  db.Column(db.Text)
+    dissertative_2 = db.Column(db.Text)
+    alternative_a = db.Column(db.Text)
+    alternative_b = db.Column(db.Text)
+    simple_question = db.Column(db.Integer, db.ForeignKey('simple_questions.id'))
+    person = db.Column(db.Integer, db.ForeignKey('person.id'))
 
 class ThemeQuestions(db.Model):
     __tablename__ = 'theme_questions'
@@ -69,6 +110,7 @@ class Person(db.Model):
     website = db.Column(db.Text)
     info = db.Column(db.Text)
     party = db.Column(db.Text)
+    answer = db.relationship('SimpleAnswers', backref='persons')
 
 class PersonDissertativeAnswer(db.Model):
     __tablename__ = 'person_dissertative_answer'

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Pergunta{% endblock %}
+
+{% block main %}
+<div class="row-fluid">
+    <div class=""
+        <form action="/responder/{{ question.id }}/?u={{ person_slug }}" method="post">
+{% for field in form %}
+        {{ field.label }}
+        {{ field }}
+        {{ field.description}}
+        {% for error in field.errors %}
+            {{ error }}
+        {% endfor %}
+{% endfor %}
+<br/>
+<input class="btn btn-primary" type="submit" value="Salvar respostas">
+</form>
+    </div>
+</div>
+{% endblock %}
