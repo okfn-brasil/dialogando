@@ -9,7 +9,7 @@ from flask.ext.login import LoginManager, login_required, login_user, logout_use
 import wtforms
 
 import trombone.user as user
-import trombone.person as person
+import trombone.questions as questions
 from trombone.models import *
 from trombone.admin import admin
 
@@ -49,7 +49,7 @@ app.add_url_rule("/login", "login", user.login, methods=['POST', 'GET'])
 app.add_url_rule("/logout", "logout", user.logout, methods=['POST', 'GET'])
 
 # Questions list
-app.add_url_rule("/responder/<int:question_id>", "responder", person.questions_page, methods=['GET', 'POST'])
+app.add_url_rule("/responder/<int:question_id>", "responder", questions.questions_page, methods=['GET', 'POST'])
 
 # Start the application
 app.run(port=5001)

@@ -9,7 +9,11 @@ def questions_page(question_id):
         # Get questions
         question = SimpleQuestion.query.filter(SimpleQuestion.id == question_id).all()[0]
         answer = SimpleAnswers.query.filter(SimpleAnswers.person_id == u.id and SimpleAnswers.question_id == question_id).all()[0]
-        form = question.create_form(request)
+
+        if answer:
+            form = question.create_form(request, answer)
+        else:
+            form = question.create_form(request)
 
         if request.method == 'GET':
             return render_template("question.html", question=question, form=form, person_slug=person_slug)

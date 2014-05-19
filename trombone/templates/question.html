@@ -4,19 +4,53 @@
 
 {% block main %}
 <div class="row-fluid">
-    <div class="">
+    <h1>{{ question.title}}</h1>
+    {{ question.description }}
+    <p/>
         <form action="/responder/{{ question.id }}?u={{ person_slug }}" method="post">
-{% for field in form %}
-        {{ field.label }}
-        {{ field }}
-        {{ field.description}}
-        {% for error in field.errors %}
+        {{ form['dissertative_1'].label }}
+        {{ form['dissertative_1'](rows=20, style="width: 800px") }}
+        {{  form['dissertative_1'].description}}
+        {% for error in  form['dissertative_1'].errors %}
             {{ error }}
         {% endfor %}
-{% endfor %}
+        <p/>
+        {{ form['dissertative_2'].label }}
+        {{ form['dissertative_2'](rows=20, style="width: 800px") }}
+        {{  form['dissertative_2'].description}}
+        {% for error in  form['dissertative_2'].errors %}
+            {{ error }}
+        {% endfor %}
+        <p/>
+
+        Marque:
+        
+        <ul>
+            <li>1 se concorda fundamentalmente com afirmação A;</li>
+            <li>2 se concorda mais com a afirmação A;</li>
+            <li>3 se concorda com as duas igualmente,</li>
+            <li>4 se concorda mais com a afirmação B;</li>
+            <li>5 se concorda fundamentalmente com a afirmação B.</li>
+        </ul>
+
+        <p/>
+
+        <h3>Alternativa A</h3>
+        {{ question.alternative_a}}
+
+        <p/>
+
+        <h3>Alternativa B</h3>
+        {{ question.alternative_b}}
+
+        {{ form['alternative'].label }}
+        {{ form['alternative'](style="width: 800px") }}
+        {{  form['alternative'].description}}
+        {% for error in  form['alternative'].errors %}
+            {{ error }}
+        {% endfor %}
 <br/>
 <input class="btn btn-primary" type="submit" value="Salvar respostas">
 </form>
-    </div>
 </div>
 {% endblock %}
