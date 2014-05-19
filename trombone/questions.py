@@ -8,11 +8,13 @@ def questions_page(question_id):
     if u:
         # Get questions
         question = SimpleQuestion.query.filter(SimpleQuestion.id == question_id).all()[0]
-        answer = SimpleAnswers.query.filter(SimpleAnswers.person_id == u.id and SimpleAnswers.question_id == question_id).all()[0]
+        qanswer = SimpleAnswers.query.filter(SimpleAnswers.person_id == u.id).filter(SimpleAnswers.simple_question_id == question_id).all()
 
-        if answer:
+        if qanswer:
+            answer = qanswer[0]
             form = question.create_form(request, answer)
         else:
+            answer = None
             form = question.create_form(request)
 
         if request.method == 'GET':
@@ -35,6 +37,7 @@ def questions_page(question_id):
                 db.session.add(new_answer)
             db.session.commit()
 
-            return render_template("question.html", question=question, form=form, person_slug=person_slug)
+            if question.next_question_id:
+                return redirect('/responder/{}?u={}'.format(question.next_question_id, u.slug))
 
     return redirect('/')

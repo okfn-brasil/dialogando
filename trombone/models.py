@@ -44,6 +44,8 @@ class SimpleQuestion(db.Model):
     dissertative_2 = db.Column(db.Text)
     alternative_a = db.Column(db.Text)
     alternative_b = db.Column(db.Text)
+    back_question_id = db.Column(db.Integer)
+    next_question_id = db.Column(db.Integer)
 
     def create_form(self, request, data=None):
         class QuestionForm(wtforms.Form):
