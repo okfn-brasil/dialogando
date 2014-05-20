@@ -34,7 +34,9 @@ html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-
 
 body { margin: 0; font-size: 13px; line-height: 1.231; padding-top: 60px; padding-bottom: 40px; }
 
-body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+body, button, input, select, textarea {  font: 18px/1.831 "Open Sans",sans-serif; color: #222; }
+
+h1 { font-family: "Quicksand"; }
 
 /* 
  * Remove text-shadow in selection highlight: h5bp.com/i
@@ -296,5 +298,46 @@ td { vertical-align: top; }
 }
 
 #main {
-    margin: 10px 20px;
+    margin: 0 auto;
+    float:none;
+}
+
+.field_area {
+    padding-top: 70px;
+    padding-bottom: 80px;
+}
+.field_area label {
+    font-size: 22px;
+    line-height: 26px;
+    padding-bottom: 40px;
+}
+
+.field1_color {
+    background-color: #009D91;
+    color: white;
+}
+
+.field2_color {
+    background-color: #FFB073;
+}
+
+.field3_color {
+    background-color:;
+}
+
+.field_content {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+}
+
+.question_header {
+    font: 18px/1.831 "Open Sans",sans-serif;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+    font-size: 23px;
+    line-height: 27px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
