@@ -330,8 +330,8 @@ td { vertical-align: top; }
 }
 
 .field_content {
-    font-size: 22px;
-    line-height: 25px;
+    font-size: 20px;
+    line-height: 20px;
     margin-left: auto !important;
     margin-right: auto !important;
     float: none !important;
@@ -355,10 +355,11 @@ td { vertical-align: top; }
 .alternative {
     width: 290px;
     padding: 20px 30px;
-    line-height: 21.5px;
+    line-height: 24px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
+    font-size: 20px;
 }
 
 #alternative_a {
