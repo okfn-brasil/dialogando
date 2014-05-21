@@ -2,6 +2,23 @@
 
 {% block title %}Pergunta{% endblock %}
 
+{% block script %}
+
+$(function () {
+    $(":radio:checked").parent().css('border', '2px solid white');
+    $(":radio").change(function () {
+        $(":radio").parent().css('border', 'none');
+        $(this).parent().css('border', '2px solid white');
+    });
+    $('.previous_question').click(function () {
+        console.log('HEY');
+        $('input[name=go_back]').val('true');
+        $('form').submit();
+    });
+});
+
+{% endblock %}
+
 {% block main %}
 <div class="row-fluid">
     <div class="question_header span5">
@@ -14,7 +31,7 @@
             <div class="field_area field1_color span12">
                 <div class="field_content span5">
         {{ form['dissertative_1'].label }}
-        {{ form['dissertative_1'](rows=20, style="width: 600px") }}
+        {{ form['dissertative_1'](rows=8, style="width: 735px") }}
         {{  form['dissertative_1'].description}}
         {% for error in  form['dissertative_1'].errors %}
             {{ error }}
@@ -26,7 +43,7 @@
             <div class="field_area field2_color span12">
                 <div class="field_content span5">
         {{ form['dissertative_2'].label }}
-        {{ form['dissertative_2'](rows=20, style="width: 600px") }}
+        {{ form['dissertative_2'](rows=8, style="width: 735px") }}
         {{  form['dissertative_2'].description}}
         {% for error in  form['dissertative_2'].errors %}
             {{ error }}
@@ -48,32 +65,53 @@
         </ul>
 
         <p/>
+        <div id="alternatives_buttons">
+            <div>
+        {% for f in form['alternative'] %}
+            <div class="alt_button alt{{ loop.index }}">
+            {{f}}
+            <h3>
+            {{ loop.index }}
+            </h3>
+            </div>
+        {% endfor %}
+            </div>
+             <div style="clear: both;"></div>
+        </div>
 
-        <h3>Alternativa A</h3>
-        {{ question.alternative_a}}
-
-        <p/>
-
-        <h3>Alternativa B</h3>
-        {{ question.alternative_b}}
-
-        {{ form['alternative'].label }}
-        {{ form['alternative'](style="width: 800px") }}
-        {{  form['alternative'].description}}
         {% for error in  form['alternative'].errors %}
             {{ error }}
         {% endfor %}
-                </div>
+        <div id="alternatives">
+            <div id="alternative_a" class="alternative">
+                <h4>Alternativa A</h4>
+                {{ question.alternative_a}}
+            </div>
+            <div id="alternative_b" class="alternative">
+                <h4>Alternativa B</h4>
+                {{ question.alternative_b}}
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+
+               </div>
             </div>
         </div>
+        <input type="hidden" name="go_back" value="false">
         <div class="row-fluid">
             <div class="field_area field4_color span12">
                 <div class="field_content span5">
-                    <input class="btn btn-primary" type="submit" value="Salvar respostas">
+                   {% if question.next_question_id %}
+                    <input class="question_button next_question" type="submit" value="Próximas perguntas  >">
+                    {% else %}
+                    <input class="question_button next_question" type="submit" value="Salvar respostas">
+                    {% endif %}
+                    {% if question.back_question_id %}
+                    <input class="question_button previous_question" type="button" value="<  Perguntas anteriores">
+                    {% endif %}
                 </div>
             </div>
         </div>
- 
 </form>
 </div>
 {% endblock %}

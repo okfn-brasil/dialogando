@@ -51,7 +51,8 @@ class SimpleQuestion(db.Model):
         class QuestionForm(wtforms.Form):
             dissertative_1 = wtforms.TextAreaField(self.dissertative_1)
             dissertative_2 = wtforms.TextAreaField(self.dissertative_2)
-            alternative = wtforms.RadioField("Escolha uma opcao", choices=[('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5')])
+            alternative = wtforms.RadioField(default='3', choices=[('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5')])
+            go_back = wtforms.HiddenField("go_back")
 
         form = QuestionForm(request.form, data) if data else  QuestionForm(request.form)
 

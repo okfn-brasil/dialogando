@@ -27,6 +27,7 @@ def questions_page(question_id):
             else:
                 new_answer = answer
 
+            print "Criando"
             new_answer.person = u
             new_answer.dissertative_1 = form['dissertative_1'].data
             new_answer.dissertative_2 = form['dissertative_2'].data
@@ -37,7 +38,12 @@ def questions_page(question_id):
                 db.session.add(new_answer)
             db.session.commit()
 
+            if form['go_back'].data == 'true' and question.back_question_id:
+                return redirect('/responder/{}?u={}'.format(question.back_question_id, u.slug))
+
             if question.next_question_id:
                 return redirect('/responder/{}?u={}'.format(question.next_question_id, u.slug))
+            else:
+                return render_template('obrigado.html', first_question_url='/responder/1?u={}'.format(u.slug))
 
     return redirect('/')
