@@ -25,10 +25,18 @@ body {
     color: #000;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
+    padding-top: 20px;
 }
 
 .jumbotron.footer a, a:hover, a:visited {
     color: #444;
+}
+
+.jumbotron.attribution {
+    background-color: #EFE8CB;
+    text-align: center;
+    padding-bottom: 0;
+    padding-top: 0;
 }
 
 .jumbotron.wait {
@@ -39,12 +47,13 @@ body {
     font-size: 35px;
     font-weight: bold;
     text-shadow: 2px 2px rgba(68, 68, 68, 0.6);
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .centered {
     margin-left: auto;
     margin-right: auto;
-    width: 300px;
     text-align: center;
 }
 
