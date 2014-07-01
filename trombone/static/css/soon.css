@@ -1,0 +1,123 @@
+body {
+    background-color: #EFE8CB;
+}
+
+.jumbotron.header {
+    background-color: #1F8A70;
+    margin-bottom: 0;
+}
+
+.jumbotron.main {
+    background-color: #fff;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+}
+
+.img-logo {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.jumbotron.footer {
+    background-color: #EFE8CB;
+    color: #000;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
+
+.jumbotron.footer a, a:hover, a:visited {
+    color: #444;
+}
+
+.jumbotron.wait {
+    background-color: #FFD34E;
+    font-family: 'Dosis', sans-serif;
+    text-transform: uppercase;
+    color: #474744;
+    font-size: 35px;
+    font-weight: bold;
+    text-shadow: 2px 2px rgba(68, 68, 68, 0.6);
+}
+
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    text-align: center;
+}
+
+.header-text {
+    font-family: 'Dosis', sans-serif;
+    text-transform: uppercase;
+    font-size: 21px;
+    color: #EFE8CB;
+}
+
+/* columns of same height styles */
+.container-xs-height {
+    display:table;
+    padding-left:0px;
+    padding-right:0px;
+}
+.row-xs-height {
+    display:table-row;
+}
+.col-xs-height {
+    display:table-cell;
+    float:none;
+}
+@media (min-width: 768px) {
+    .container-sm-height {
+        display:table;
+        padding-left:0px;
+        padding-right:0px;
+    }
+    .row-sm-height {
+        display:table-row;
+    }
+    .col-sm-height {
+        display:table-cell;
+        float:none;
+    }
+}
+@media (min-width: 992px) {
+    .container-md-height {
+        display:table;
+        padding-left:0px;
+        padding-right:0px;
+    }
+    .row-md-height {
+        display:table-row;
+    }
+    .col-md-height {
+        display:table-cell;
+        float:none;
+    }
+}
+@media (min-width: 1200px) {
+    .container-lg-height {
+        display:table;
+        padding-left:0px;
+        padding-right:0px;
+    }
+    .row-lg-height {
+        display:table-row;
+    }
+    .col-lg-height {
+        display:table-cell;
+        float:none;
+    }
+}
+
+/* vertical alignment styles */
+.col-top {
+    vertical-align:top;
+}
+.col-middle {
+    vertical-align:middle;
+}
+.col-bottom {
+    vertical-align:bottom;
+}

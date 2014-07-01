@@ -9,6 +9,7 @@ from flask.ext.login import LoginManager, login_required, login_user, logout_use
 import wtforms
 
 import trombone.user as user
+import trombone.main as main
 import trombone.questions as questions
 from trombone.models import *
 from trombone.admin import admin
@@ -43,6 +44,7 @@ if not admin_user:
 admin.init_app(app)
 
 # Add routes
+app.add_url_rule("/", "root", main.root, methods=['GET'])
 
 # Admin interface
 app.add_url_rule("/login", "login", user.login, methods=['POST', 'GET'])
