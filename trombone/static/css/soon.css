@@ -2,6 +2,11 @@ body {
     background-color: #EFE8CB;
 }
 
+.logo {
+    max-width: 100%;
+    height: auto;
+}
+
 .jumbotron.header {
     background-color: #1F8A70;
     margin-bottom: 0;
@@ -49,6 +54,7 @@ body {
     text-shadow: 2px 2px rgba(68, 68, 68, 0.6);
     padding-top: 10px;
     padding-bottom: 10px;
+    text-align: center;
 }
 
 .centered {
