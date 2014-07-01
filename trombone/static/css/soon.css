@@ -130,3 +130,7 @@ body {
 .col-bottom {
     vertical-align:bottom;
 }
+
+.jumbotron.attribution {
+    font-style: italic;
+}
