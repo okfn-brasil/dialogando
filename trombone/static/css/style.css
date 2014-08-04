@@ -36,7 +36,7 @@ body { margin: 0; font-size: 13px; line-height: 1.231; padding-top: 60px; paddin
 
 body, button, input, select, textarea {  font: 18px/1.831 "Open Sans",sans-serif; color: #222; }
 
-h1 { font-family: "Quicksand"; font-weight: bold; font-size: 38px; color: #004358; }
+h1 { font-family: "Quicksand"; font-weight: bold; font-size: 28px; color: #004358; }
 
 /* 
  * Remove text-shadow in selection highlight: h5bp.com/i
@@ -302,14 +302,19 @@ td { vertical-align: top; }
     float:none;
 }
 
+.diss_example {
+    font-size: 15px;
+    font-style: italic;
+}
+
 .field_area {
-    padding-top: 70px;
-    padding-bottom: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 .field_area label {
-    font-size: 22px;
+    font-size: 18px;
     line-height: 26px;
-    padding-bottom: 40px;
+    padding-bottom: 10px;
 }
 
 .field1_color {
@@ -318,19 +323,19 @@ td { vertical-align: top; }
 }
 
 .field2_color {
-    background-color: #FF8F3B;
+    background-color: #1F8A70;
     color: white;
 
 }
 
 .field3_color {
-    background-color: #8E2D3A;
+    background-color: #2FB091;
     color: white;
 
 }
 
 .field_content {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 20px;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -346,20 +351,20 @@ td { vertical-align: top; }
     margin-left: auto !important;
     margin-right: auto !important;
     float: none !important;
-    font-size: 23px;
+    font-size: 20px;
     line-height: 27px;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .alternative {
-    width: 290px;
+    width: 240px;
     padding: 20px 30px;
     line-height: 24px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 #alternative_a {
@@ -374,13 +379,13 @@ td { vertical-align: top; }
 
 #alternatives_buttons {
     margin: auto;
-    padding-top: 40px;
+    padding-top: 20px;
     padding-bottom: 40px;
 }
 
 .alt_button {
     text-align: center;
-    width: 147px;
+    width: 120px;
     float: left;
     color: white;
     font-size: 25px;
@@ -422,9 +427,13 @@ td { vertical-align: top; }
     width: 270px;
     background-color: #004358;
     color: white;
-    font-size: 24px;
+    font-size: 19px;
 }
 
 .question_button:hover {
     background-color: #066277;
+}
+
+textarea {
+    width: 100%;
 }

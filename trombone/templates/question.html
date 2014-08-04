@@ -31,7 +31,7 @@ $(function () {
             <div class="field_area field1_color span12">
                 <div class="field_content span5">
         {{ form['dissertative_1'].label }}
-        {{ form['dissertative_1'](rows=8, style="width: 735px") }}
+        {{ form['dissertative_1'](rows=8) }}
         {{  form['dissertative_1'].description}}
         {% for error in  form['dissertative_1'].errors %}
             {{ error }}
@@ -43,7 +43,7 @@ $(function () {
             <div class="field_area field2_color span12">
                 <div class="field_content span5">
         {{ form['dissertative_2'].label }}
-        {{ form['dissertative_2'](rows=8, style="width: 735px") }}
+        {{ form['dissertative_2'](rows=8) }}
         {{  form['dissertative_2'].description}}
         {% for error in  form['dissertative_2'].errors %}
             {{ error }}
