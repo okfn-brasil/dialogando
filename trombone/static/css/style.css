@@ -358,7 +358,7 @@ td { vertical-align: top; }
 }
 
 .alternative {
-    width: 240px;
+    width: 35%;
     padding: 20px 30px;
     line-height: 24px;
     -webkit-border-radius: 10px;
@@ -385,7 +385,7 @@ td { vertical-align: top; }
 
 .alt_button {
     text-align: center;
-    width: 120px;
+    width: 17%;
     float: left;
     color: white;
     font-size: 25px;
