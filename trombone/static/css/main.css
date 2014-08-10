@@ -215,3 +215,43 @@ div.area-title.row {
     }
 }
 
+.answer {
+    padding-top: 20px;
+}
+
+.answer-text {
+    background-color:#FAF1E3;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    padding: 15px 10px;
+    color: #105B63;
+    font-size: 16px;
+}
+
+.answer-person {
+}
+
+.answer-person div {
+    float: left;
+}
+
+.person-photo {
+    width: 85px;
+    margin: 0;
+    padding-top: 0;
+    text-align: center;
+}
+
+.person-photo img {
+    vertical-align: top;
+}
+
+
+.person-photo img.photo {
+    padding-top: 10px;
+}
+
+.person-name {
+    padding: 20px;
+}
