@@ -44,7 +44,7 @@ if not admin_user:
 admin.init_app(app)
 
 # Add routes
-app.add_url_rule("/", "root", main.root, methods=['GET'])
+app.add_url_rule("/", "root", main.main, methods=['GET'])
 
 # Admin interface
 app.add_url_rule("/login", "login", user.login, methods=['POST', 'GET'])
