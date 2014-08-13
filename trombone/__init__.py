@@ -44,7 +44,12 @@ if not admin_user:
 admin.init_app(app)
 
 # Add routes
+
+# Root page
 app.add_url_rule("/", "root", main.main, methods=['GET'])
+
+# Answers page
+app.add_url_rule("/respostas", "answers", main.answers, methods=['GET'])
 
 # Admin interface
 app.add_url_rule("/login", "login", user.login, methods=['POST', 'GET'])
@@ -54,4 +59,4 @@ app.add_url_rule("/logout", "logout", user.logout, methods=['POST', 'GET'])
 app.add_url_rule("/responder/<int:question_id>", "responder", questions.questions_page, methods=['GET', 'POST'])
 
 # Start the application
-app.run(port=5001)
+app.run(host='0.0.0.0', port=5001)

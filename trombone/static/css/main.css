@@ -7,6 +7,38 @@ body {
     height: auto;
 }
 
+.navbar {
+    background-color: #1F7F66;
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.navbar-brand:hover, .navbar-brand:visited {
+    color: #EFE8CB;
+}
+
+.navbar-nav > li > a {
+    color: #EFE8CB;
+    padding-left: 55px;
+    padding-right: 55px;
+    font-size: 18px;
+}
+
+.navbar-nav > li > a:hover, a:visited, a:active {
+    background-color: #EFE8CB;
+    color: #1F7F66;
+}
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    color: #EFE8CB;
+
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
 .jumbotron.header {
     background-color: #1F8A70;
     margin-bottom: 0;
@@ -27,6 +59,19 @@ body {
 
 .themes {
     background-color: #FFD34E;
+}
+
+.person {
+    background-color: #91AA9D;
+}
+
+.person-1, .person-2, .person-3 {
+    background-color: #BDCCC4;
+}
+
+.row h1.person-box-name {
+    font-family: 'Dosis', sans-serif;
+    font-size: 45px;
 }
 
 .answers {
@@ -71,6 +116,7 @@ div.area-title.row {
 
 .theme-1 {
     background-color: #FFE083;
+    padding-bottom:20px;
 }
 
 .theme-2 {
@@ -91,6 +137,40 @@ div.area-title.row {
 
 .answer-3 {
     background-color: #E6BB73;
+}
+
+.person-answer-1 {
+    background-color: #FFFAD5;
+}
+
+.person-answer-2 {
+    background-color: #E9C586;
+}
+
+.person-answer-3 {
+    background-color: #E6BB73;
+}
+.person-answers {
+    background-color: #DB9E36;
+}
+
+.person-answers h2 {
+    color: #23656B;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.person-3 ul {
+    list-style-type: none;
+}
+
+.person-3 ul li {
+    padding: 10px 0;
+}
+
+.person-data  {
+    font-size: 16px;
 }
 
 .img-logo {

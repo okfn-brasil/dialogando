@@ -5,3 +5,6 @@ def root():
 
 def main():
     return render_template('root.html')
+
+def answers():
+    return render_template('answers.html')
