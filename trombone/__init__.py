@@ -46,7 +46,8 @@ admin.init_app(app)
 # Add routes
 
 # Root page
-app.add_url_rule("/", "root", main.main, methods=['GET'])
+app.add_url_rule("/", "soon", main.root, methods=['GET'])
+app.add_url_rule("/p", "root", main.main, methods=['GET'])
 
 # Answers page
 app.add_url_rule("/respostas", "answers", main.answers, methods=['GET'])
