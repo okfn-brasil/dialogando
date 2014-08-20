@@ -20,8 +20,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <!-- Place favicon.ico and apple-touch-icon.png in static dir for Flask -->
-  <link rel="shortcut icon" href="/static/favicon.ico">
-  <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
+ <link rel="shortcut icon"  href="/static/img/dial-favicon.ico" />
 
   <!-- CSS: implied media=all -->
   <!-- CSS concatenated and minified via ant build script-->
@@ -70,7 +69,10 @@
             <span class="icon-bar"></span> 
             <span class="icon-bar"></span> 
           </a> 
-          <a class="brand" href="#"> Dialogando </a> 
+          <a class="brand" href="#"><img src="http://dialogando.org/static/img/dialogando-logo-menor.png"></a> 
+          <ul class="nav navbar-nav">
+                {% block header_menu %}{% endblock %}
+          </ul>
           <div class="nav-collapse"> 
             <ul class="nav nav-pills"> 
             </ul> 

@@ -1,5 +1,5 @@
 from flask import request, flash, redirect, render_template
-from models import Person, SimpleQuestion, SimpleAnswers, db
+from models import Person, SimpleQuestion, SimpleAnswers, Topic, db
 
 def questions_page(question_id):
     person_slug = request.args.get('u')
@@ -8,6 +8,7 @@ def questions_page(question_id):
     if u:
         # Get questions
         question = SimpleQuestion.query.filter(SimpleQuestion.id == question_id).all()[0]
+        topic = Topic.query.get(question.topic)
         qanswer = SimpleAnswers.query.filter(SimpleAnswers.person_id == u.id).filter(SimpleAnswers.simple_question_id == question_id).all()
 
         if qanswer:
@@ -18,7 +19,7 @@ def questions_page(question_id):
             form = question.create_form(request)
 
         if request.method == 'GET':
-            return render_template("question.html", question=question, form=form, person_slug=person_slug)
+            return render_template("question.html", question=question, topic=topic, form=form, person_slug=person_slug)
         elif request.method == 'POST' and form.validate():
             add_answer = False
             if not answer:
@@ -27,7 +28,6 @@ def questions_page(question_id):
             else:
                 new_answer = answer
 
-            print "Criando"
             new_answer.person = u
             new_answer.dissertative_1 = form['dissertative_1'].data
             new_answer.dissertative_2 = form['dissertative_2'].data

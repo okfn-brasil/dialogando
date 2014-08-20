@@ -37,6 +37,8 @@ body { margin: 0; font-size: 13px; line-height: 1.231; padding-top: 60px; paddin
 body, button, input, select, textarea {  font: 18px/1.831 "Open Sans",sans-serif; color: #222; }
 
 h1 { font-family: "Quicksand"; font-weight: bold; font-size: 28px; color: #004358; }
+h2 { font-family: "Quicksand"; font-weight: bold; font-size: 24px; color: #004358; }
+
 
 /* 
  * Remove text-shadow in selection highlight: h5bp.com/i
@@ -291,6 +293,24 @@ td { vertical-align: top; }
   @page { margin: 0.5cm; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
+}
+
+.navbar, .navbar-fixed-top, .navbar-inner {
+    background-color: #1F7F66;
+    background-image: none;
+    color: white;
+}
+
+.navbar h2 {
+    color: #EFE8CB;
+}
+
+.navbar-inner .container {
+    width: 80%;
+}
+
+.navbar .brand {
+    color: white;
 }
 
 .cmd_form {

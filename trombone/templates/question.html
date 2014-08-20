@@ -19,10 +19,16 @@ $(function () {
 
 {% endblock %}
 
+{% block header_menu %}
+<li><h2> Questão {{ question.id }} de 9</h2></li>
+{% endblock %}
+
 {% block main %}
 <div class="row-fluid">
     <div class="question_header span10">
-    <h1>{{ question.title}}</h1>
+    <h1>{{ topic.title }}</h1>
+    {{ topic.description }}
+    <h2>{{ question.id }}. {{ question.title}}</h2>
     {{ question.description }}
     </div>
     <p/>
