@@ -358,13 +358,17 @@ td { vertical-align: top; }
 }
 
 .alternative {
-    width: 35%;
     padding: 20px 30px;
     line-height: 24px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
     font-size: 18px;
+    width:40%;
+}
+
+#alternatives {
+    margin: auto;
 }
 
 #alternative_a {
@@ -379,6 +383,8 @@ td { vertical-align: top; }
 
 #alternatives_buttons {
     margin: auto;
+    width: 35%;
+    text-align: center;
     padding-top: 20px;
     padding-bottom: 40px;
 }
