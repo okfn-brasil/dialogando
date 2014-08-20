@@ -303,6 +303,7 @@ td { vertical-align: top; }
 
 .navbar h2 {
     color: #EFE8CB;
+    font-size: 20px;
 }
 
 .navbar-inner .container {
@@ -371,8 +372,8 @@ td { vertical-align: top; }
     margin-left: auto !important;
     margin-right: auto !important;
     float: none !important;
-    font-size: 20px;
-    line-height: 27px;
+    font-size: 16px;
+    line-height: 22px;
     padding-top: 30px;
     padding-bottom: 30px;
 }
