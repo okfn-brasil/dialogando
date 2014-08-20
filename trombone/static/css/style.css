@@ -328,8 +328,8 @@ td { vertical-align: top; }
 }
 
 .field_area {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 10px;
 }
 .field_area label {
     font-size: 18px;
@@ -355,8 +355,8 @@ td { vertical-align: top; }
 }
 
 .field_content {
-    font-size: 18px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 18px;
     margin-left: auto !important;
     margin-right: auto !important;
     float: none !important;
@@ -414,9 +414,12 @@ td { vertical-align: top; }
     width: 17%;
     float: left;
     color: white;
-    font-size: 25px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+.alt_button h3 {
+    font-size: 20px;
+    line-height: 10px;
 }
 
 .alt1 {
