@@ -20,6 +20,13 @@ body {
     font-size: 18px;
 }
 
+.candidato-msg {
+    background-color:#FDE78D;
+    font-size: 20px;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
 .img-logo {
     margin-top: 20px;
     text-align: center;
