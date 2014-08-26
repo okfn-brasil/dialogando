@@ -16,12 +16,13 @@ from trombone.admin import admin
 
 class DefaultConfig(object):
     SECRET_KEY = 'Isthisthereallife?Isthisjustfantasy?Caughtinalandslide'
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///./trombone.db'
+#    SQLALCHEMY_DATABASE_URI = 'sqlite:///./trombone.db'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://dialogando:senha@localhost/dialogando'
     PROPAGATE_EXCEPTIONS = True
 
 app = Flask(__name__)
-app.config.from_object('trombone.DefaultConfig')
-#app.config.from_pyfile(self.config, silent=True)
+#app.config.from_object('trombone.DefaultConfig')
+app.config.from_pyfile('settings.cfg', silent=True)
 
 # Configure the login manager
 login_manager = LoginManager()
@@ -60,4 +61,5 @@ app.add_url_rule("/logout", "logout", user.logout, methods=['POST', 'GET'])
 app.add_url_rule("/responder/<int:question_id>", "responder", questions.questions_page, methods=['GET', 'POST'])
 
 # Start the application
-app.run(host='0.0.0.0', port=5001)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5001)

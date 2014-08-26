@@ -464,6 +464,19 @@ td { vertical-align: top; }
     background-color: #066277;
 }
 
+a.question_button, a.question_button:visited {
+	color: white;
+}
+
+.start-button {
+    margin: auto;
+    text-align: center;
+}
+
+.question_header a, a:hover, a:active, a:visited {
+	color: #004358;
+}
+
 textarea {
     width: 100%;
 }

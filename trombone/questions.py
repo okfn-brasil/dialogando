@@ -3,7 +3,11 @@ from models import Person, SimpleQuestion, SimpleAnswers, Topic, db
 
 def questions_page(question_id):
     person_slug = request.args.get('u')
-    u = Person.query.filter(Person.slug == person_slug).all()[0]
+    user_query = Person.query.filter(Person.slug == person_slug).all()
+    u = user_query[0]
+
+    if question_id  == 0:
+         return render_template("intro.html", person=u, person_slug=person_slug)
 
     if u:
         # Get questions

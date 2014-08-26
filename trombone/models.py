@@ -112,6 +112,8 @@ class Person(db.Model):
     website = db.Column(db.Text)
     info = db.Column(db.Text)
     party = db.Column(db.Text)
+    sex = db.Column(db.Text)
+    candidature = db.Column(db.Text)
     answers = db.relationship('SimpleAnswers', backref='person')
 
 class PersonDissertativeAnswer(db.Model):
