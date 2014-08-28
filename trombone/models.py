@@ -108,12 +108,14 @@ class Person(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     slug = db.Column(db.Text)
     name = db.Column(db.Text)
+    urn_name = db.Column(db.Text)
     email = db.Column(db.Text)
     website = db.Column(db.Text)
     info = db.Column(db.Text)
     party = db.Column(db.Text)
     sex = db.Column(db.Text)
     candidature = db.Column(db.Text)
+    received_email = db.Column(db.Boolean)
     answers = db.relationship('SimpleAnswers', backref='person')
 
 class PersonDissertativeAnswer(db.Model):

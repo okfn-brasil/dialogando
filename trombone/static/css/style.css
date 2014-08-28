@@ -473,6 +473,10 @@ a.question_button, a.question_button:visited {
     text-align: center;
 }
 
+.start-button a.question_button {
+    color: white;
+}
+
 .question_header a, a:hover, a:active, a:visited {
 	color: #004358;
 }
