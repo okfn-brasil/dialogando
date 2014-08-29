@@ -1,4 +1,4 @@
-from flask import redirect
+from flask import redirect, render_template
 from flask.ext import admin
 from flask.ext.admin import expose
 from flask.ext.admin.contrib import sqla
@@ -14,6 +14,14 @@ class MyAdminIndexView(admin.AdminIndexView):
         if not login.current_user.is_authenticated():
             return redirect('/login')
         return super(MyAdminIndexView, self).index()
+
+    @expose('/lista')
+    def lista(self):
+        if not login.current_user.is_authenticated():
+            return redirect('/login')
+
+        persons = Person.query.all()
+        return render_template('lista.html', persons=persons)
 
 class UserAdmin(sqla.ModelView):
     def is_accessible(self):

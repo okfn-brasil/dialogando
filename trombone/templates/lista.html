@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row-fluid">
+	    <div class="span2 offset4">
+                <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th>Nome</th>
+                    <th>Nome da urna</th>
+                    <th>email</th>
+                    <th>Link</th>
+                    <th>Partido</th>
+                    </tr>
+                </thead>
+                <tbody>
+            {% for person in persons %}
+                <tr>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.urn_name }}</td>
+                    <td>{{ person.email }}</td>
+                    <td><a href="http://dialogando.org/responder/0?u={{ person.slug }}">http://dialogando.org/responder/0?u={{ person.slug }}</a></td>
+                    <td>{{ person.party }}</td>
+                </tr>
+            {% endfor %}
+                </tbody>
+            </table>
+	     </div>
+	</div>
+</div>
+{% endblock %}
