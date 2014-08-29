@@ -47,6 +47,9 @@ class SimpleQuestion(db.Model):
     back_question_id = db.Column(db.Integer)
     next_question_id = db.Column(db.Integer)
 
+    def __repr__(self):
+        return '{} - {}'.format(self.id, self.title)
+
     def create_form(self, request, data=None):
         class QuestionForm(wtforms.Form):
             dissertative_1 = wtforms.TextAreaField(self.dissertative_1)
@@ -117,6 +120,9 @@ class Person(db.Model):
     candidature = db.Column(db.Text)
     received_email = db.Column(db.Boolean)
     answers = db.relationship('SimpleAnswers', backref='person')
+
+    def __repr__(self):
+        return '{} ({})'.format(self.name, self.urn_name)
 
 class PersonDissertativeAnswer(db.Model):
     __tablename__ = 'person_dissertative_answer'

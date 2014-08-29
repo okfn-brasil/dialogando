@@ -2,21 +2,24 @@
 
 {% block title %}Login{% endblock %}
 
-{% block main %}
-<div class="row-fluid">
-    <div class="span2 offset4">
-<form action="/login" method="post">
-{% for field in form %}
-        {{ field.label }}
-        {{ field }}
-        {{ field.description}}
-        {% for error in field.errors %}
-            {{ error }}
-        {% endfor %}
-{% endfor %}
-<br/>
-<input class="btn btn-primary" type="submit" value="Log in">
-</form>
-    </div>
+{% block content %}
+<div class="container">
+	<div class="row-fluid">
+	    <div class="span2 offset4 centered">
+	<form action="/login" method="post">
+	{% for field in form %}
+		<br>
+	        {{ field.label }}
+	        {{ field }}
+	        {{ field.description}}
+	        {% for error in field.errors %}
+	            {{ error }}
+	        {% endfor %}
+	{% endfor %}
+	<br/>
+	<input class="btn btn-primary" type="submit" value="Log in">
+	</form>
+	     </div>
+	</div>
 </div>
 {% endblock %}
